@@ -1,0 +1,15 @@
+This is a Proof of Concept to show how to generate actual network configuration from an Archimate model.
+
+See the documentation of the diagram to understand what is missing from the modeling perspective.
+
+The xslts are intended to run either standalone or using the styledhtml export module.
+Both xslts are fine with a "targetdir" parameter, and node-linux acually uses it.
+
+network.xslt generates a simplified network model with nodes, interfaces and networks.
+node-linux.xslt generates an /etc/default/interfaces file.
+
+As it is just a PoC, there is no sanity checks whatsoever, no other files are generated, and no generator for other OSs.
+Even the netmask table knows only about /1 and /24 :)
+
+You can work from here however.
+
