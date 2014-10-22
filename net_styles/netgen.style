@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style>
+	<export target="model.xml" keep="true" style="archi">
+		<transform language="xslt" script="xslt/network.xslt" target="middle.xml" noroot="yes" keep="true" flat="false" part="all">
+			<transform language="xslt" script="xslt/node-linux.xslt" target="linux.xml"/>
+		</transform>
+	</export>
+</style>

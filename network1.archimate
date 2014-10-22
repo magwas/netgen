@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.bolton.ac.uk/archimate" name="Network generation - level 1" id="eda90c04" version="2.2.1">
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="Network generation - level 1" id="eda90c04" version="2.6.0">
   <folder name="Business" id="238c3cfb" type="business"/>
   <folder name="Application" id="680fc5fd" type="application">
     <element xsi:type="archimate:ApplicationComponent" id="3305b5c8" name="Dhcp Server">
@@ -49,6 +49,10 @@
     <element xsi:type="archimate:Node" id="d7816b42" name="samba server"/>
     <element xsi:type="archimate:Node" id="f65760ff" name="client">
       <property key="OS" value="Debian"/>
+    </element>
+    <element xsi:type="archimate:Node" id="c24fb632" name="new node"/>
+    <element xsi:type="archimate:CommunicationPath" id="4cd48b51" name="reference to interface">
+      <property key="ifaceref" value="FE-02"/>
     </element>
   </folder>
   <folder name="Motivation" id="e9022c8d" type="motivation"/>
@@ -118,6 +122,10 @@
     </element>
     <element xsi:type="archimate:AssociationRelationship" id="49a19155" source="51d35e07" target="f4080b87"/>
     <element xsi:type="archimate:RealisationRelationship" id="0bd9a715" source="f4080b87" target="3305b5c8"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="78785934" source="cb24bb3a" target="bceff0fb"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="fa9945fc" source="c24fb632" target="bceff0fb"/>
+    <element xsi:type="archimate:AccessRelationship" id="d74db185" source="f65760ff" target="4cd48b51"/>
+    <element xsi:type="archimate:AccessRelationship" id="53e237de" source="cb24bb3a" target="4cd48b51" accessType="1"/>
   </folder>
   <folder name="Views" id="669625a7" type="diagrams">
     <element xsi:type="archimate:ArchimateDiagramModel" id="508a11e2" name="Classic SOHO example - beginner modeling style" connectionRouterType="1">
@@ -146,7 +154,7 @@
         <bounds x="168" y="312"/>
         <sourceConnection xsi:type="archimate:Connection" id="98b729c1" source="02351334" target="6ed2ece5" relationship="7b57f149"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="c636896d" textAlignment="2" archimateElement="bceff0fb">
+      <child xsi:type="archimate:DiagramObject" id="c636896d" textAlignment="2" targetConnections="b8d03923" archimateElement="bceff0fb">
         <bounds x="276" y="396"/>
         <sourceConnection xsi:type="archimate:Connection" id="1ee9667e" source="c636896d" target="02351334" relationship="8eae1894"/>
       </child>
@@ -165,15 +173,21 @@
       </child>
       <child xsi:type="archimate:DiagramObject" id="6ed2ece5" textAlignment="2" targetConnections="98b729c1" archimateElement="cb24bb3a">
         <bounds x="168" y="480"/>
+        <sourceConnection xsi:type="archimate:Connection" id="b8d03923" source="6ed2ece5" target="c636896d" relationship="78785934"/>
+        <sourceConnection xsi:type="archimate:Connection" id="50bee558" source="6ed2ece5" target="72032f8d" relationship="53e237de"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="17cc2f66" textAlignment="2" targetConnections="271260a0" archimateElement="d7816b42">
         <bounds x="586" y="485"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="af3b9ec8" textAlignment="2" targetConnections="30057937" archimateElement="f65760ff">
         <bounds x="780" y="480"/>
+        <sourceConnection xsi:type="archimate:Connection" id="a4b4a273" source="af3b9ec8" target="72032f8d" relationship="d74db185"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="6709d356" textAlignment="2" targetConnections="e80f401f" archimateElement="3305b5c8">
         <bounds x="744" y="258"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="72032f8d" textAlignment="2" targetConnections="a4b4a273 50bee558" archimateElement="4cd48b51">
+        <bounds x="768" y="84"/>
       </child>
       <documentation>This diagram shows a classic soho netork in a beginner modeler style.
 
@@ -182,6 +196,15 @@ Relations are actually modeling objects (one relation is used instead two techno
 Object attributes are modeled by properties instead of relations to other objects.
 
 This style uses few objects compared to more advanced styles, but some details cannot be shown on diagrams, and it is not easy to extend with new concepts.</documentation>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" id="5d80ab16" name="New ArchiMate View">
+      <child xsi:type="archimate:DiagramObject" id="b867522c" textAlignment="2" targetConnections="b9a28a9d" archimateElement="bceff0fb">
+        <bounds x="408" y="156"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="a80a5f21" textAlignment="2" archimateElement="c24fb632">
+        <bounds x="576" y="273"/>
+        <sourceConnection xsi:type="archimate:Connection" id="b9a28a9d" source="a80a5f21" target="b867522c" relationship="fa9945fc"/>
+      </child>
     </element>
   </folder>
   <property key="report:part" value="all"/>
