@@ -24,7 +24,7 @@
         <xsl:for-each select="//node[@OS='Linux']">
             <xsl:copy-of select="."/>
             <targetdir><xsl:value-of select="$targetdir"/></targetdir>
-            <xsl:variable name="hostpath" select="string-join(('file:',translate($targetdir,'\','/'),@name),'/')"/>
+            <xsl:variable name="hostpath" select="string-join(('file://',translate($targetdir,'\','/'),@name),'/')"/>
             <hostpath><xsl:value-of select="$hostpath"/></hostpath>
             <xsl:variable name="interfaces" select="string-join(($hostpath,'etc','default','interfaces'),'/')"/>
             <interfaces><xsl:value-of select="$interfaces"/></interfaces>
